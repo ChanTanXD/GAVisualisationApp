@@ -8,8 +8,8 @@ namespace GAVisualisationApp
 {
     public class GeneticAlgorithm
     {
-        const int maxPop = 102;
-        const int maxString = 31;
+        const int maxPop = 100;
+        const int maxString = 30;
         public struct Individual
         {
             public Individual(bool[] chromosome, double x, double fitness, int parent1, int parent2, int xsite)

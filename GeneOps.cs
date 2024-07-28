@@ -10,14 +10,42 @@ namespace GAVisualisationApp
     public class GeneOps
     {
         //Contains Selection, Crossover, and Mutation
-        public static int Select(int popSize, float sumFitness, Individual[] pop)
+        public static int RouletteSelect(int popSize, float sumFitness, Individual[] pop)
         {
             //select a single individual via roulette wheel selection
             int i = 0;
             float partSum = 0f;
             float rand = RandomMethods.RandFloat() * sumFitness;
 
-            while (partSum < rand && i < popSize)
+            while (partSum < rand && i < popSize-1)
+            {
+                i++;
+                partSum += (float)pop[i].fitness;
+            }
+            return i;
+        }
+        public static int RankSelect(int popSize, float sumFitness, Individual[] pop)
+        {
+            //select a single individual via roulette wheel selection
+            int i = 0;
+            float partSum = 0f;
+            float rand = RandomMethods.RandFloat() * sumFitness;
+
+            while (partSum < rand && i < popSize - 1)
+            {
+                i++;
+                partSum += (float)pop[i].fitness;
+            }
+            return i;
+        }
+        public static int SteadySelect(int popSize, float sumFitness, Individual[] pop)
+        {
+            //select a single individual via roulette wheel selection
+            int i = 0;
+            float partSum = 0f;
+            float rand = RandomMethods.RandFloat() * sumFitness;
+
+            while (partSum < rand && i < popSize - 1)
             {
                 i++;
                 partSum += (float)pop[i].fitness;
@@ -63,7 +91,7 @@ namespace GAVisualisationApp
 
 
             //First exchange, 1 to 1 and 2 to 2
-            for (int i = 1; i < iCross; i++)
+            for (int i = 0; i < iCross; i++)
             {
                 child1[i] = Mutation(parent1[i], ga.mutationProb, ref ga.mutationNum);
                 child2[i] = Mutation(parent2[i], ga.mutationProb, ref ga.mutationNum);

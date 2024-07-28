@@ -16,7 +16,7 @@ namespace GAVisualisationApp
             double accum = 0d;
             double powerOf2 = 1d;
 
-            for (int i = 1; i < bitsLen; i++)
+            for (int i = 0; i < bitsLen; i++)
             {
                 if (chrom[i])
                     accum += powerOf2;
@@ -33,7 +33,7 @@ namespace GAVisualisationApp
             //Coefficient to normalize domain
 
             //*******fix array index, then delete this line********
-            chromLen--;
+            //chromLen--;
 
             double coef = Math.Pow(2, chromLen) - 1d;
             const double n = 10d;
@@ -47,7 +47,7 @@ namespace GAVisualisationApp
             float max = 0f;
             double fitness;
 
-            for (int i = 1; i < ga.popSize; i++)
+            for (int i = 0; i < ga.popSize; i++)
             {
                 fitness = pop[i].fitness;
                 sumFitness += (float)fitness;

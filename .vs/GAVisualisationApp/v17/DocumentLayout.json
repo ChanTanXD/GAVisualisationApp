@@ -7,12 +7,12 @@
       "RelativeMoniker": "D:0:0:{EB6202C0-E7AB-449A-933A-9221C28BC42A}|GAVisualisationApp.csproj|solutionrelative:geneops.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{EB6202C0-E7AB-449A-933A-9221C28BC42A}|GAVisualisationApp.csproj|c:\\users\\asus\\source\\repos\\gavisualisationapp\\mainprog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{EB6202C0-E7AB-449A-933A-9221C28BC42A}|GAVisualisationApp.csproj|solutionrelative:mainprog.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{EB6202C0-E7AB-449A-933A-9221C28BC42A}|GAVisualisationApp.csproj|c:\\users\\asus\\source\\repos\\gavisualisationapp\\generation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{EB6202C0-E7AB-449A-933A-9221C28BC42A}|GAVisualisationApp.csproj|solutionrelative:generation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB6202C0-E7AB-449A-933A-9221C28BC42A}|GAVisualisationApp.csproj|c:\\users\\asus\\source\\repos\\gavisualisationapp\\initialization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB6202C0-E7AB-449A-933A-9221C28BC42A}|GAVisualisationApp.csproj|solutionrelative:initialization.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,8 +22,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Initialization.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\Initialization.cs",
+              "RelativeDocumentMoniker": "Initialization.cs",
+              "ToolTip": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\Initialization.cs",
+              "RelativeToolTip": "Initialization.cs",
+              "ViewState": "AQIAAB8AAAAAAAAAAAAQwCoAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-03T09:40:33.517Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Generation.cs",
+              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\Generation.cs",
+              "RelativeDocumentMoniker": "Generation.cs",
+              "ToolTip": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\Generation.cs",
+              "RelativeToolTip": "Generation.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAxwBQAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-03T09:39:37.573Z"
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -32,34 +56,10 @@
               "RelativeDocumentMoniker": "GeneOps.cs",
               "ToolTip": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\GeneOps.cs",
               "RelativeToolTip": "GeneOps.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAoAAAAFAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAABAAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-28T05:54:13.363Z",
+              "WhenOpened": "2024-07-03T09:35:28.48Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Generation.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\Generation.cs",
-              "RelativeDocumentMoniker": "Generation.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\Generation.cs",
-              "RelativeToolTip": "Generation.cs",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAQwBsAAAAoAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-26T08:18:07.014Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "MainProg.cs",
-              "DocumentMoniker": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\MainProg.cs",
-              "RelativeDocumentMoniker": "MainProg.cs",
-              "ToolTip": "C:\\Users\\Asus\\source\\repos\\GAVisualisationApp\\MainProg.cs",
-              "RelativeToolTip": "MainProg.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwCAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-04-06T08:13:32.995Z"
             }
           ]
         }

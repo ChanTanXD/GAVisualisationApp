@@ -17,17 +17,17 @@ namespace GAVisualisationApp
             //Retrieves a new batch of pseudorandom numbers
             float newRand;
 
-            for (int i = 1; i < 24; i++)
+            for (int i = 0; i < 23; i++)
             {
-                newRand = oldRand[i] - oldRand[i + 30];
+                newRand = oldRand[i] - oldRand[i + 29];
                 if (newRand < 0f)
                     newRand++;
                 oldRand[i] = newRand;
             }
 
-            for (int i = 25; i < 55; i++)
+            for (int i = 24; i < 54; i++)
             {
-                newRand = oldRand[i] - oldRand[i - 23];
+                newRand = oldRand[i] - oldRand[i - 22];
                 if (newRand < 0f)
                     newRand++;
                 oldRand[i] = newRand;
@@ -71,8 +71,6 @@ namespace GAVisualisationApp
         public static float RandFloat()
         {
             float randNum = (float)rand.NextDouble();
-            /*if (randNum < 0.4f)
-                randNum += 0.4f;*/
             return randNum;
         }
         public static bool Flip(float i)

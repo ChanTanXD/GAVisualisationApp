@@ -21,10 +21,10 @@ namespace GAVisualisationApp
 
             //Initialize GA values
             ga = Initialization.Init();
-            float[] maxFit = new float[ga.maxGen+1];
+            float[] maxFit = new float[ga.maxGen];
 
             //Generate following generations
-            for (gen = 1; gen <= ga.maxGen; gen++)
+            for (gen = 0; gen < ga.maxGen; gen++)
             {
                 ga = Generation.Generate(ga);
                 maxFit[gen] = ga.max;

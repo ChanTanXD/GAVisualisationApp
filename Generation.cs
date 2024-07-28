@@ -13,17 +13,16 @@ namespace GAVisualisationApp
         {
             //Create a new generation via Select, Crossover, and Mutation
             //***This method assumes an even-numbered popsize***
-            int i, mate1, mate2, iCross;
-            i = 1;
+            int mate1, mate2, iCross;
             iCross = 0;
 
 
             //repeat Select, Crossover, and Mutation until newPop is filled
-            while (i <= ga.popSize)
+            for (int i = 0; i < ga.popSize; i += 2)
             {
                 //pick a pair of mates
-                mate1 = GeneOps.Select(ga.popSize, ga.sumFitness, ga.oldPop);
-                mate2 = GeneOps.Select(ga.popSize, ga.sumFitness, ga.oldPop);
+                mate1 = GeneOps.RouletteSelect(ga.popSize, ga.sumFitness, ga.oldPop);
+                mate2 = GeneOps.RouletteSelect(ga.popSize, ga.sumFitness, ga.oldPop);
 
                 //Crossover and Mutation
                 ga = GeneOps.Crossover(ga, mate1, mate2, ref iCross, i);
@@ -41,9 +40,6 @@ namespace GAVisualisationApp
                 ga.newPop[i + 1].parent1 = mate1;
                 ga.newPop[i + 1].parent2 = mate2;
                 ga.newPop[i + 1].xSite = iCross;
-
-                //Increase population index
-                i += 2;
             }
 
             ga = Interface.Stats(ga, ga.newPop);

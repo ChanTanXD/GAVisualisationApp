@@ -33,14 +33,14 @@ namespace GAVisualisationApp
 
         static void PopInit()
         {
-            for (int i = 1; i < ga.popSize; i++)
+            for (int i = 0; i < ga.popSize; i++)
             {
                 GeneticAlgorithm.Individual indiv = new GeneticAlgorithm.Individual();
                 indiv.chrom = new bool[ga.chromLen];
                 ga.newPop[i].chrom = new bool[ga.chromLen];
 
 
-                for (int j = 1; j < ga.chromLen; j++)
+                for (int j = 0; j < ga.chromLen; j++)
                     indiv.chrom[j] = RandomMethods.Flip(0.5f);
 
                 indiv.x = Interface.Decode(indiv.chrom, ga.chromLen);
