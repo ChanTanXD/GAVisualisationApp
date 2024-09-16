@@ -13,25 +13,34 @@ namespace GAVisualisationApp
 {
     public class MainProg
     {
-        public static void Main(string[] args)
+        public static void Execute(int popSize, int chromLen, int maxGen, int crossProb, int mutationProb,
+                                    int demoNum, int selectionNum, int crossoverNum, int mutationNum)
         {
             GeneticAlgorithm ga = new GeneticAlgorithm();
             int gen = 0;
 
-
             //Initialize GA values
-            ga = Initialization.Init();
+            float crossProbFloat = (float)crossProb / 100f;
+            float mutationProbFloat = (float)mutationProb / 100f;
+            ga = Initialization.Init(popSize, chromLen, maxGen, crossProbFloat, mutationProbFloat, 0f, demoNum, "Fuck Satay");
             float[] maxFit = new float[ga.maxGen];
 
             //Generate following generations
             for (gen = 0; gen < ga.maxGen; gen++)
             {
-                ga = Generation.Generate(ga);
+                ga = Generation.Generate(ga, demoNum,selectionNum,crossoverNum,mutationNum);
                 maxFit[gen] = ga.max;
-                Console.WriteLine("gen{0} fittest individual: {1}",gen , ga.max);
-            }
+                Console.WriteLine("gen{0} fittest individual: {1}",gen+1 , ga.newPop[ga.max].fitness);
+                Console.WriteLine("gen{0} fittest individual: {1}", gen+1, ga.newPop[ga.max].word);
 
-            Visual.CreateVisual(maxFit);
+                //for (int i = 0; i < ga.popSize; i++)
+                    //Console.WriteLine(ga.newPop[i].word);
+            }
+            Console.WriteLine(Interface.WordBuildFitness(ga.target, ga.target.Length, ga.target));
+        }
+        public static void Main(string[] args)
+        {
+            Visual.CreateVisual();
         }
 
         public static void PrintChrom(bool[] chrom)

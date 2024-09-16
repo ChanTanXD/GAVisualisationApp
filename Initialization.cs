@@ -10,28 +10,39 @@ namespace GAVisualisationApp
 {
     public class Initialization
     {
-        public static GeneticAlgorithm ga = new GeneticAlgorithm();
-
-        //Contains DataInit, PopInit, and Init
-        static void DataInit()
+        //Contains Init and PopInit
+        public static GeneticAlgorithm Init(int popSize, int chromLen, int maxGen, float crossProb, float mutationProb,
+                                            float seed,int demoMethod, string targetWord)
         {
-            Console.WriteLine("Enter population size (100 max)");
-            ga.popSize = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Enter chromosome length");
-            ga.chromLen = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Enter maximum generations");
-            ga.maxGen = Int32.Parse(Console.ReadLine());
-            Console.WriteLine("Enter crossover probability (0.0 to 1.0)");
-            ga.crossProb = float.Parse(Console.ReadLine());
-            Console.WriteLine("Enter mutation probability (0.0 to 1.0)");
-            ga.mutationProb = float.Parse(Console.ReadLine());
-            Console.WriteLine("Enter seed number for RNG (0.0 to 1.0)");
-            RandomMethods.InitRand(float.Parse(Console.ReadLine()));
+            GeneticAlgorithm ga = new GeneticAlgorithm();
+
+            //100 max
+            ga.popSize = popSize;
+            //ga.chromLen = chromLen;
+            ga.chromLen = (targetWord.Length * 7);
+            ga.maxGen = maxGen;
+            //0.0 to 1.0
+            ga.crossProb = crossProb;
+            //0.0 to 1.0
+            ga.mutationProb = mutationProb;
+            //0.0 to 1.0
+            RandomMethods.InitRand(seed);
             ga.mutationNum = 0;
             ga.crossNum = 0;
+
+
+            if(demoMethod == 0)
+            {
+                ga.target = targetWord.ToCharArray();
+            }
+
+
+            ga = PopInit(ga,demoMethod);
+            ga = Interface.Stats(ga, ga.oldPop);
+            return ga;
         }
 
-        static void PopInit()
+        static GeneticAlgorithm PopInit(GeneticAlgorithm ga, int demoMethod)
         {
             for (int i = 0; i < ga.popSize; i++)
             {
@@ -41,24 +52,33 @@ namespace GAVisualisationApp
 
 
                 for (int j = 0; j < ga.chromLen; j++)
+                {
+                    indiv.chrom[j] = RandomMethods.Flip(0.5f);
+                }
+
+
+                if (demoMethod == 0)
+                {
+                    char[] wordBuild;
+                    wordBuild = Interface.DecodeWordBuilder(indiv.chrom, ga.chromLen);
+                    indiv.word = new string(wordBuild);
+                    indiv.fitness = Interface.WordBuildFitness(wordBuild, ga.target.Length, ga.target);
+                }
+
+                /*
+                for (int j = 0; j < ga.chromLen; j++)
                     indiv.chrom[j] = RandomMethods.Flip(0.5f);
 
                 indiv.x = Interface.Decode(indiv.chrom, ga.chromLen);
-                indiv.fitness = Interface.ObjFunc(indiv.x, ga.chromLen);
+                indiv.fitness = Interface.ObjFunc(indiv.x, ga.chromLen, demoMethod);
+                */
                 indiv.parent1 = 0;
                 indiv.parent2 = 0;
                 indiv.xSite = 0;
 
                 ga.oldPop[i] = indiv;
             }
-        }
 
-        public static GeneticAlgorithm Init()
-        {
-
-            DataInit();
-            PopInit();
-            ga = Interface.Stats(ga, ga.oldPop);
             return ga;
         }
     }
